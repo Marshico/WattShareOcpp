@@ -96,7 +96,7 @@ export const updateTransaction = async (
         select: { meterStart: true },
       });
 
-      if (existingTransaction?.meterStart != null) {
+      if (existingTransaction?.meterStart !== undefined) {
         energyConsumedCalculated = (data.meterStop - existingTransaction.meterStart) / 1000; // Convert Wh to kWh
         logDebug('Energy consumption calculated', {
           ocppMessageType: OcppMessageType.DATABASE,
